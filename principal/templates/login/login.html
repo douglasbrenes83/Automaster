@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulario de Acceso </title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login/Login.css' %}">
+</head>
+
+<body>
+
+    <div id="contenedor">
+        <div id="central">
+            <div id="login">
+                <div class="titulo">
+                   <h2>Iniciar Sesiòn</h2> 
+
+                </div>
+                <form id="loginform">
+                    <input type="text" name="usuario" placeholder="Usuario" required>
+
+                    <input type="password" placeholder="Contraseña" name="password" required>
+
+                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
+                </form>
+                <div class="pie-form">
+                    <a href="#">¿has perdido tu contraseña?</a>
+                    <a href="#">¿No tienes Cuenta? Registrate</a>
+                </div>
+            </div>
+            <div class="inferior">
+                <a href="#">Volver</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
