@@ -1,30 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     {%load static%}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Formulario de Acceso </title>
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Overpass&display=swap" rel="stylesheet">
+    <title>Iniciar secion</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/login/Login.css' %}">
 </head>
 
 <body>
         <div class="background">  
             <div class="login-container">  
-                <h1>Autoaster Pro</h1>  
+                <h1>AutoMaster Pro</h1>  
                 <form>  
                     <div class="input-group">  
-                        <label for="username">correo electronico</label>  
-                        <input type="text" id="username" name="username" required>  
+                        <input type="text" id="username" name="username" required placeholder="usuario@AutoMasterPro.com">  
                     </div>  
                     <div class="input-group">  
-                        <label for="password">contraseña</label>  
-                        <input type="password" id="password" name="password" required>  
+                        <input type="password" id="password" name="password" required placeholder="Contraseña ***">  
                     </div>  
                     <button type="submit">Login</button>  
-                    <a href="#" class="forgot-password">¿ha olvidado su contraceña?</a>  
+                    <a href="#" class="forgot-password">¿has olvidado tu contraseña?</a>  
                     <div class="remember-me">  
                         <input type="checkbox" id="remember" name="remember">  
                         <label for="remember">autoguardar usuario</label>  

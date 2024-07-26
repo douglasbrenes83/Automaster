@@ -1,7 +1,10 @@
 body {  
     margin: 200px;
     font-family: 'Arial', sans-serif;  
-    background-image: url('https://s39.aconvert.com/convert/p3r68-cdx67/bvyl2-532gy.jpg');
+    background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url('./imageneslogin/fondologin.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 30vh;  
     display: flex;  
     justify-content: center;  
@@ -21,7 +24,7 @@ body {
     background-color: rgba(0, 0, 0, 0.555);  
     padding: 20px;  
     border-radius: 10px;  
-    box-shadow: 0 4px 10px rgba(190, 173, 173, 0.5);  
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);  
     width: 300px;  
     text-align: center;  
     color: rgb(255, 255, 255);  
@@ -33,12 +36,10 @@ h1 {
 }  
 
 .input-group {  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 15px;  
-}  
-
-label {  
-    display: block;  
-    margin-bottom: 5px;  
 }  
 
 input[type="text"],  
@@ -47,6 +48,8 @@ input[type="password"] {
     padding: 10px;  
     border: none;  
     border-radius: 5px;  
+    margin-top: 20px;
+    
 }  
 
 button {  
@@ -57,6 +60,7 @@ button {
     border: none;  
     border-radius: 5px;  
     cursor: pointer;  
+    margin-top: 15px;
 }  
 
 button:hover {  
