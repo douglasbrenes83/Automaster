@@ -11,31 +11,27 @@
 </head>
 
 <body>
-
-    <div id="contenedor">
-        <div id="central">
-            <div id="login">
-                <div class="titulo">
-                   <h2>Iniciar Sesiòn</h2> 
-
-                </div>
-                <form id="loginform">
-                    <input type="text" name="usuario" placeholder="Usuario" required>
-
-                    <input type="password" placeholder="Contraseña" name="password" required>
-
-                    <button type="submit" title="Ingresar" name="Ingresar">Login</button>
-                </form>
-                <div class="pie-form">
-                    <a href="#">¿has perdido tu contraseña?</a>
-                    <a href="#">¿No tienes Cuenta? Registrate</a>
-                </div>
-            </div>
-            <div class="inferior">
-                <a href="#">Volver</a>
-            </div>
-        </div>
-    </div>
+        <div class="background">  
+            <div class="login-container">  
+                <h1>Autoaster Pro</h1>  
+                <form>  
+                    <div class="input-group">  
+                        <label for="username">correo electronico</label>  
+                        <input type="text" id="username" name="username" required>  
+                    </div>  
+                    <div class="input-group">  
+                        <label for="password">contraseña</label>  
+                        <input type="password" id="password" name="password" required>  
+                    </div>  
+                    <button type="submit">Login</button>  
+                    <a href="#" class="forgot-password">¿ha olvidado su contraceña?</a>  
+                    <div class="remember-me">  
+                        <input type="checkbox" id="remember" name="remember">  
+                        <label for="remember">autoguardar usuario</label>  
+                    </div>  
+                </form>  
+            </div>  
+        </div>  
 </body>
 
 </html>
