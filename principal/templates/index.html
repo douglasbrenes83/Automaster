@@ -20,6 +20,13 @@
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit">Login</button>
+
+                </form>
+                <form method="post" action="{% url 'contacto' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">hellen</button>
+                    
                 </form>
             </div>
 

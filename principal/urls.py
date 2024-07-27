@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.IndexPage, name='index'),  # Ruta para la página principal
+    path('Contacto/', views.contact, name='contacto'),
     path('login/', views.ResLogin, name='login'),
     path('clientes/', views.cliente_list, name='cliente_list'),
     path('clientes/new/',views.cliente_create, name='cliente_create'),

@@ -10,6 +10,10 @@ def IndexPage(request):
     return render(request, 'index.html')
 
 
+def contact(request):
+    return render(request,'IndexPrincipal/indexContact.html')
+
+
 def ResLogin(request):
     if request.method == 'POST':
         username = request.POST.get('username')
