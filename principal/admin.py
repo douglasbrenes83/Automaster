@@ -10,4 +10,3 @@ class ClienteAdmin(admin.ModelAdmin):
     search_fields = ('nombre', 'apellidos', 'dni')
 
 admin.site.register(Cliente, ClienteAdmin)
-
