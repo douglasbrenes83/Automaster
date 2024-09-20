@@ -22,10 +22,16 @@
                     <button type="submit">Login</button>
 
                 </form>
-                <form method="post" action="{% url 'contacto' %}">
+                <form method="post" action="{% url 'cliente_create' %}">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit">hellen</button>
+                    
+                </form>
+                <form method="post" action="{% url 'cliente_update' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Clientes</button>
                     
                 </form>
             </div>

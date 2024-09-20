@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/clientecss/clientelist.css' %}">
+    <title>Lista de clientes</title>
+</head>
+<body>
+    
+
+    <div class="container">
+       <div class="encabezado">
+        <h2>Lista de clientes</h2>
+        <div class="botones">
+            <form  method="post" action="{% url 'cliente_create' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="nuevo" type="submit">  ➕ Nuevo  </button>
+    
+            </form>
+            <form class="f2" method="post" action="{% url 'cliente_update' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="editar"> ✏️ Editar</button>
+    
+            </form>
+            <form class="f3" method="post" action="{% url 'cliente_update' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="eliminar" > 🗑️ Eliminar</button>
+    
+            </form>
+        </div>
+        
+         
+        
+       </div>
+      <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Seleccionar</th>
+                    <th> Nombres </th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Direccion</th>
+                </tr>
+            </thead>
+            <tbody>
+            
+
+            </tbody>
+           </table>
+      </div> 
+
+
+    </div>
+   
+</body>
+</html>
