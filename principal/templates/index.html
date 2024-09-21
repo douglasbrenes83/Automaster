@@ -34,10 +34,6 @@
                         {% csrf_token %}
                         <button type="submit" class="btn btn-light">Login</button>
                     </form>
-                    <form method="post" action="{% url 'cliente_update' %}" class="d-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-light">Clientes</button>
-                    </form>
                 </div>
             </nav>
         </div>
