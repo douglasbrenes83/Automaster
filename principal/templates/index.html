@@ -28,6 +28,12 @@
                     <button type="submit">hellen</button>
                     
                 </form>
+                <form method="post" action="{% url 'cliente_update' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Clientes</button>
+                    
+                </form>
             </div>
 
         </div>
