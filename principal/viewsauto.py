@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .models import RegistroVehiculo
 from .forms import RegistroVehiculoForm
 
+
 #vista lista de autos
 def vehiculo_list(request):
     vehiculos = RegistroVehiculo.objects.all()
