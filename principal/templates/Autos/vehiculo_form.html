@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Vehículo</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Si tienes algún archivo CSS -->
+</head>
+<body>
+    <h1>Registrar un Nuevo Vehículo</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.as_p }} <!-- Renderiza todos los campos del formulario con etiquetas <p> -->
+        </div>
+        
+        <button type="submit">Registrar Vehículo</button>
+    </form>
+
+    <a href="{% url 'vehiculo_list' %}">Volver a la lista de vehículos</a>
+</body>
+</html>
