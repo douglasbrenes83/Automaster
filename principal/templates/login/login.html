@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
+<!DOCTYPE html>  
+<html lang="es">  
+<head>  
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro - AutoMaster Pro</title>
-    <link rel="stylesheet" href="{% static 'css/login/Login.css' %}">
-</head>
-
-<body>
-    <div class="main-container">
-        <div class="logo-container">
-            <h1>AutoMaster Pro</h1>
-            <h2>Taller de Mecánica</h2>
-            <h2>¡Bienvenido!</h2>
-        </div>
-        <div class="form-container">
-            <h2>Inicia Secion</h2>
-            <form method="post" action="">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-                
-
-                <input type="email" name="email" placeholder="Correo Electrónico" required value="{{ form.email.value|default:'' }}">
-                {{ form.email.errors }}
-
-                <input type="password" name="password" placeholder="Contraseña" required>
-                {{ form.password.errors }}
-
-
-                <button type="submit" class="btn">Entrar</button>
-            </form>
-            
-        </div>
-    </div>
-</body>
-
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Registro - AutoMaster Pro</title>  
+    <link rel="stylesheet" href="{% static 'css/login/Login.css'%}">  
+</head>  
+<body>  
+    <div class="main-container">  
+        <div class="logo-container">  
+            <h1>AutoMaster Pro</h1>  
+            <h2>Taller de Mecánica</h2>  
+            <h2>BIENVENIDO</h2>  
+        </div>  
+        <div class="form-container">  
+            <h2>CREA NUEVA CUENTA</h2>  
+            <input type="text" placeholder="Nombre Completo" required>  
+            <input type="email" placeholder="Dirección de Correo Electrónico" required>  
+            <input type="password" placeholder="Contraseña" required>  
+            <button class="btn">Crear Cuenta</button>  
+            <p>¿Ya tienes una cuenta? <a href="#" class="link">Inicia Sesión</a></p>  
+        </div>  
+    </div>  
+</body>  
 </html>
