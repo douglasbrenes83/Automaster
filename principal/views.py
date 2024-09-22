@@ -35,10 +35,10 @@ def cliente_create(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('cliente_list')
+            return redirect('cliente_create')
     else:
         form = ClienteForm()
-    return render(request, 'clientes/cliente_form.html', {'form': form})
+    return render(request, 'Clientes/new/cliente_form.html', {'form': form})
 
 # Listar clientes
 def cliente_list(request):

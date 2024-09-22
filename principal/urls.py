@@ -3,6 +3,7 @@ from . import views
 from . import viewsauto
 
 urlpatterns = [
+    #urls
     path('', views.IndexPage, name='index'),  # Ruta para la página principal
     path('Contacto/', views.contact, name='contacto'),
     path('login/', views.ResLogin, name='login'),
