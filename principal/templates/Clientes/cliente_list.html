@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {%load static%}
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'css/clientecss/clientelist.css' %}">
@@ -17,7 +17,7 @@
             <form  method="post" action="{% url 'cliente_create' %}">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="nuevo" type="submit">  ➕ Nuevo  </button>
+                <button class="nuevo" >   Nuevo  </button>
     
             </form>
             <form class="f2" method="post" action="{% url 'cliente_update' %}">

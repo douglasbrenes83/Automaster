@@ -22,7 +22,7 @@
                 <button class="item"  type="submit">Inicio</button>
             </form>
        
-         <form method="post" action="{% url '' %}">
+         <form method="post" action="">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="item"  type="submit">Clientes</button>
