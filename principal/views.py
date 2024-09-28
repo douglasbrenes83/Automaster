@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.http import HttpResponse
 from .models import Cliente
 from .forms import ClienteForm
@@ -21,11 +23,21 @@ def ResLogin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponse('bienvenido')  # Cambia esto al nombre de tu página principal
+            return redirect('dashboard')  # Redirige a la página principal, asume que tienes una URL con nombre 'home'
         else:
-            # Si la autenticación falla, puedes manejarlo como quieras
             return render(request, 'login/login.html', {'error_message': 'Credenciales inválidas'})
     return render(request, 'login/login.html')
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "Has cerrado sesión exitosamente.")
+    return redirect('login')
+
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard/index.html')
+
+
         
         
 
