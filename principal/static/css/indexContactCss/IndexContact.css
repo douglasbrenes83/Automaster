@@ -5,6 +5,7 @@
     box-sizing: border-box;
     
 }
+
 body{
     width: 100%;
     height: 100vh;
@@ -12,6 +13,7 @@ body{
     align-items: center;
    
 }
+
 .contact-in{
 width: 100%;
 height: auto;
@@ -65,52 +67,3 @@ footer{
     background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../indexContactCss/imgcontacto/centra.jpg);
     position: center;background-position: center;
 }
-
-<<<<<<< HEAD
-.ficon, .derechosf{
-    display: flex;
-    width: 100%;
-    height: 50%;
-    justify-content: center;
-    align-items: center;
-    color: red;
-}
-/* Tamaño de íconos generales */
-a i {
-    margin: 25px;
-    font-size: 35px; /* Ajusta el tamaño de todos los íconos */
-    transition: color 0.3s; /* Transición suave para el cambio de color */
-}
-
-/* Estilo para el ícono de Facebook */
-a[title="Facebook"] i {
-    color: #4267B2; /* Color de Facebook */
-}
-
-/* Estilo para el ícono de Instagram */
-a[title="Instagram"] i {
-    color: #C13584; /* Color de Instagram */
-}
-
-/* Estilo para el ícono de Correo Electrónico */
-a[title="Correo Electrónico"] i {
-    color: #DD4B39; /* Color de Gmail o color rojo por defecto */
-}
-
-/* Estilo para el ícono de Twitter */
-a[title="Twitter"] i {
-    color: #1DA1F2; /* Color de Twitter */
-}
-
-/* Cambiar el color de los íconos cuando el usuario pasa el ratón sobre ellos */
-a:hover i {
-    color: #ff4500; /* Color cuando se pasa el ratón sobre cualquier ícono */
-}
-
-/* Cambiar el color de los íconos cuando el usuario hace clic en ellos */
-a:active i {
-    color: #ff6347; /* Color cuando el ícono está siendo clicado */
-}
-=======
-
->>>>>>> cc9ac2d7fc48910ea77761b7163e420df728fdd9
