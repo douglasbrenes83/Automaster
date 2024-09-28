@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente,RegistroVehiculo
+from .models import Cliente,RegistroVehiculo,RecepcionVehiculo
 
 # Register your models here.
 # admin.py
@@ -19,4 +19,17 @@ class RegistroVehiculoAdmin(admin.ModelAdmin):
 
     def __str__(self):
         return f"{self.modelo} ({self.matricula})"
-  
+    
+@admin.register(RecepcionVehiculo)
+class RecepcionVehiculoAdmin(admin.ModelAdmin):
+    list_display = ('vehiculo', 'fecha_recepcion', 'hora_recepcion', 'estado', 'reparacion')  # Campos que se mostrarán en la lista
+    list_filter = ('fecha_recepcion', 'estado')  # Filtros por fecha y estado
+    search_fields = ('vehiculo__matricula', 'vehiculo__modelo', 'estado')  # Campos para la búsqueda
+    list_per_page = 20  # Número de elementos por página
+
+    fieldsets = (
+        (None, {
+            'fields': ('vehiculo', 'fecha_recepcion', 'hora_recepcion', 'estado', 'observaciones', 'reparacion')
+        }),
+    )
+    ordering = ('-fecha_recepcion',)  # Orden por fecha de recepción (descendente)

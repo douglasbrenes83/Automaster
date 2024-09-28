@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Recepciones</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'css/Vehiculo/recepcionnew.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">Lista de Recepciones de Vehículos</h1>
+        
+        <!-- Botón para agregar nueva recepción -->
+        <div class="mb-3 text-right">
+            <a href="{% url 'nueva_recepcion' %}" class="btn btn-primary">Agregar nueva recepción</a>
+        </div>
+
+        <table class="table table-bordered table-hover table-responsive-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Vehículo</th>
+                    <th>Fecha de Recepción</th>
+                    <th>Hora de Recepción</th>
+                    <th>Estado</th>
+                    <th>Observaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recepcion in recepciones %}
+                <tr>
+                    <td>{{ recepcion.vehiculo.modelo }}</td>
+                    <td>{{ recepcion.fecha_recepcion }}</td>
+                    <td>{{ recepcion.hora_recepcion }}</td>
+                    <td>{{ recepcion.estado }}</td>
+                    <td>{{ recepcion.observaciones }}</td>
+                    <td>
+                        <a href="{% url 'actualizar_recepcion' recepcion.id %}" class="btn btn-warning btn-sm">Actualizar</a>
+                        <a href="{% url 'eliminar_recepcion' recepcion.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center">No hay recepciones registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

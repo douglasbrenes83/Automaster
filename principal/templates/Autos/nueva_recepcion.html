@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Recepción de Vehículo</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/Vehiculo/recepcionnew.css' %}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Agregar vehículo de recepción</h1>
+    
+    <form>
+        <!-- Vehículo -->
+        <div class="form-group row">
+            <label for="vehiculo" class="col-sm-2 col-form-label">Vehículo:</label>
+            <div class="col-sm-10 input-group">
+                <select id="vehiculo" class="form-control">
+                    <option>Zuzuki (my2210)</option>
+                    <!-- Más opciones de vehículos aquí -->
+                </select>
+                <div class="input-group-append">
+                    <button class="btn btn-warning" type="button"><i class="fas fa-pen"></i></button>
+                    <button class="btn btn-success" type="button"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-info" type="button"><i class="fas fa-eye"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fecha de recepción -->
+        <div class="form-group row">
+            <label for="fecha_recepcion" class="col-sm-2 col-form-label">Fecha de recepción:</label>
+            <div class="col-sm-10 input-group">
+                <input type="date" id="fecha_recepcion" class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Hoy</button>
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-calendar-alt"></i></button>
+                </div>
+            </div>
+            <small class="form-text text-muted">Nota: Está 6 horas detrás del horario del servidor.</small>
+        </div>
+
+        <!-- Hora de recepción -->
+        <div class="form-group row">
+            <label for="hora_recepcion" class="col-sm-2 col-form-label">Hora de recepción:</label>
+            <div class="col-sm-10 input-group">
+                <input type="time" id="hora_recepcion" class="form-control">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">Ahora</button>
+                    <button class="btn btn-outline-secondary" type="button"><i class="fas fa-clock"></i></button>
+                </div>
+            </div>
+            <small class="form-text text-muted">Nota: Está 6 horas detrás del horario del servidor.</small>
+        </div>
+
+        <!-- Estado -->
+        <div class="form-group row">
+            <label for="estado" class="col-sm-2 col-form-label">Estado:</label>
+            <div class="col-sm-10">
+                <input type="text" id="estado" class="form-control" value="finalizado">
+            </div>
+        </div>
+
+        <!-- Observaciones -->
+        <div class="form-group row">
+            <label for="observaciones" class="col-sm-2 col-form-label">Observaciones:</label>
+            <div class="col-sm-10">
+                <textarea id="observaciones" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <!-- Reparación -->
+        <div class="form-group row">
+            <label for="reparacion" class="col-sm-2 col-form-label">Reparación:</label>
+            <div class="col-sm-10">
+                <select id="reparacion" class="form-control">
+                    <option value="">Seleccione...</option>
+                    <!-- Más opciones aquí -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">GUARDAR</button>
+                <button type="button" class="btn btn-info">Guardar y agregar otro</button>
+                <button type="button" class="btn btn-secondary">Guardar y continuar editando</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS, Popper.js y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Iconos Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
