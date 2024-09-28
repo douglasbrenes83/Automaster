@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import RegistroVehiculo,RecepcionVehiculo, Reparaciones
+from django.contrib.auth.decorators import login_required
 from .forms import RegistroVehiculoForm
 from .forms import RecepcionVehiculoForm
 
@@ -20,6 +21,7 @@ def vehiculo_create(request):
     
     return render(request, 'Autos/vehiculo_form.html', {'form': form})
 #update vehiculo
+@login_required
 def actualizar_vehiculo(request, vehiculo_id):
     vehiculo = get_object_or_404(RegistroVehiculo, id=vehiculo_id)
     
