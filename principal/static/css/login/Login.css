@@ -1,5 +1,6 @@
 body {  
-    background-color: #1a1a1a;  
+
+    background-image: url(imageneslogin/fondo-auto.jpg);
     color: white;  
     font-family: Arial, sans-serif;  
     display: flex;  
@@ -20,36 +21,41 @@ body {
 
 .logo-container {  
     background-color: #1a1a1a;  
-    padding: 20px;  
+    padding: 50px;  
     width: 50%;  
     text-align: center;  
+    background-image: url(imageneslogin/fondologin.jpg);
 }  
 
 .form-container {  
-    padding: 20px;  
+    background-color: rgba(185, 28, 28, 0.5);
+    padding: 50px;  
     width: 50%;  
 }  
 
 h1 {  
+  
     margin: 0;  
     font-size: 24px;  
-}  
-
-h2 {  
-    font-size: 18px;  
-    margin: 10px 0;  
+    display: flex;
+    text-align: center;
+    padding: 25px;
+    image-orientation:center;
+    background-image: url(/AutoMasterPro/imageneslogin/fondologin.jpg);
 }  
 
 input {  
+   
     width: 100%;  
     padding: 10px;  
     margin: 10px 0;  
     border: none;  
     border-radius: 5px;  
+    display: flex;
 }  
 
 .btn {  
-    background-color: #e74c3c;  
+    background-color: #aa2c1ead;  
     color: white;  
     border: none;  
     padding: 10px;  
