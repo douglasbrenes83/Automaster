@@ -50,7 +50,7 @@ def cliente_create(request):
             return redirect('cliente_create')
     else:
         form = ClienteForm()
-    return render(request, 'Clientes/new/cliente_form.html', {'form': form})
+    return render(request, 'Clientes/new/cliente_create.html', {'form': form})
 
 # Listar clientes
 def cliente_list(request):
@@ -72,7 +72,7 @@ def cliente_update(request, pk):
             return redirect('cliente_list')
     else:
         form = ClienteForm(instance=cliente)
-    return render(request, 'clientes/cliente_form.html', {'form': form})
+    return render(request, 'clientes/cliente_update.html', {'form': form})
 
 # Eliminar cliente
 def cliente_delete(request, pk):

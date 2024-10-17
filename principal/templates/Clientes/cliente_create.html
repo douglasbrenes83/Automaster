@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo cliente</title>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/Cliente/clientestyle.css' %}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Agregar nuevo cliente</h1>
+    
+    <form>
+        <!-- DNI -->
+        <div class="form-group row">
+            <label for="dni" class="col-sm-2 col-form-label">DNI:</label>
+            <div class="col-sm-10">
+                <input type="text" id="dni" class="form-control" placeholder="Ingrese DNI del cliente">
+            </div>
+        </div>
+
+        <!-- Nombres -->
+        <div class="form-group row">
+            <label for="nombres" class="col-sm-2 col-form-label">Nombres:</label>
+            <div class="col-sm-10">
+                <input type="text" id="nombres" class="form-control" placeholder="Ingrese nombres del cliente">
+            </div>
+        </div>
+
+        <!-- Apellidos -->
+        <div class="form-group row">
+            <label for="apellidos" class="col-sm-2 col-form-label">Apellidos:</label>
+            <div class="col-sm-10">
+                <input type="text" id="apellidos" class="form-control" placeholder="Ingrese apellidos del cliente">
+            </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="form-group row">
+            <label for="direccion" class="col-sm-2 col-form-label">Dirección:</label>
+            <div class="col-sm-10">
+                <input type="text" id="direccion" class="form-control" placeholder="Ingrese dirección del cliente">
+            </div>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="form-group row">
+            <label for="telefono" class="col-sm-2 col-form-label">Teléfono:</label>
+            <div class="col-sm-10">
+                <input type="tel" id="telefono" class="form-control" placeholder="Ingrese teléfono del cliente">
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="form-group row">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">GUARDAR</button>
+                <button type="button" class="btn btn-info">Guardar y agregar otro</button>
+                <button type="button" class="btn btn-secondary">Guardar y continuar editando</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS, Popper.js y jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Iconos Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
