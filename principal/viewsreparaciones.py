@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Reparaciones
+from .models import Reparaciones,Reparacion
 from .forms import ReparacionesForm  # Ensure you have a form for Reparaciones
 from django.contrib.auth.decorators import login_required
 
@@ -19,7 +19,7 @@ def reparacion_create(request):
             return redirect('reparacion_list')
     else:
         form = ReparacionesForm()
-    return render(request, 'reparaciones/reparacion_create.html', {'form': form})
+    return render(request, 'Reparaciones/reparacion_create.html', {'form': form})
 
 # Update an existing reparacion
 @login_required
@@ -42,3 +42,7 @@ def reparacion_delete(request, pk):
         reparacion.delete()
         return redirect('reparacion_list')
     return render(request, 'Reparaciones/reparacion_delete.html', {'reparacion': reparacion})
+
+def repar_list(request):
+    reparaciones = Reparacion.objects.all()
+    return render(request, 'Reparacion/repar_list.html', {'reparaciones': reparaciones})

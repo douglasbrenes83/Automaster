@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Reparación</title>
+    <!-- Incluye Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Tu archivo CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'css/reparacioncss/reparaciones.css' %}">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Registrar una Nueva Reparación</h1>
+        
+        <form method="post" class="bg-white p-4 shadow rounded">
+            {% csrf_token %}
+            <div>
+                {{ form.as_p }} <!-- Renderiza todos los campos del formulario -->
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Registrar Reparación</button>
+            </div>
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="{% url 'reparacion_list' %}" class="btn btn-secondary">Volver a la lista de reparaciones</a>
+        </div>
+    </div>
+
+    <!-- Incluye Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

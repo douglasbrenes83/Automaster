@@ -1,5 +1,5 @@
 from django import forms
-from .models import Cliente,RegistroVehiculo,RecepcionVehiculo,Mecanico,Reparaciones
+from .models import Cliente,RegistroVehiculo,RecepcionVehiculo,Mecanico,Reparaciones,Facturas,Reparacion
 from django.shortcuts import render
 #creacion de formulario para cliente
 class ClienteForm(forms.ModelForm):
@@ -54,4 +54,28 @@ class ReparacionesForm(forms.ModelForm):
             'fecha_fin': forms.DateInput(attrs={'type': 'date', 'placeholder': 'Fecha de fin'}),
             'total_mano_de_obra': forms.NumberInput(attrs={'placeholder': 'Total mano de obra'}),
             'estatus': forms.TextInput(attrs={'placeholder': 'Estatus'}),
+        }
+class FacturaForm(forms.ModelForm):
+    class Meta:
+        model = Facturas
+        fields = ['reparacion', 'fecha', 'subtotal', 'iva', 'total', 'total_dolares']
+        widgets = {
+            'fecha': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'subtotal': forms.NumberInput(attrs={'class': 'form-control'}),
+            'iva': forms.NumberInput(attrs={'class': 'form-control'}),
+            'total': forms.NumberInput(attrs={'class': 'form-control'}),
+            'total_dolares': forms.NumberInput(attrs={'class': 'form-control'}),
+        }
+    
+    def __init__(self, *args, **kwargs):
+        super(FacturaForm, self).__init__(*args, **kwargs)
+        self.fields['reparacion'].widget.attrs.update({'class': 'form-control'})
+    class ReparacionForm(forms.ModelForm):
+     class Meta:
+        model = Reparacion
+        fields = ['nombre', 'descripcion', 'costo_estimado']  # Campos del formulario
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de la reparación'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción de la reparación'}),
+            'costo_estimado': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Costo estimado en NIO'}),
         }

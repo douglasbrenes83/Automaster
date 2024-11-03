@@ -130,4 +130,10 @@ class Reservas(models.Model):
     def __str__(self):
         return f"Reserva {self.id} - {self.fecha_reserva} ({self.estado})"
 
+class Reparacion(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    descripcion = models.TextField(blank=True, null=True)
+    costo_estimado = models.DecimalField(max_digits=10, decimal_places=2)
 
+    def __str__(self):
+        return self.nombre

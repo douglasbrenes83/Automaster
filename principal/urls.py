@@ -3,6 +3,8 @@ from . import views
 from . import viewsauto
 from . import viewsmecanico
 from . import viewsreparaciones
+from . import viewsfactura
+
 
 urlpatterns = [
     #urls
@@ -33,5 +35,9 @@ urlpatterns = [
     path('Reparaciones/new/', viewsreparaciones.reparacion_create, name='reparacion_create'),
     path('Reparaciones/update/<int:pk>/edit/', viewsreparaciones.reparacion_update, name='reparacion_update'),
     path('Reparaciones/<int:pk>/delete/', viewsreparaciones.reparacion_delete, name='reparacion_delete'),
-
+    path('Facturas/', viewsfactura.factura_list, name='factura_list'),
+    path('Facturas/new/', viewsfactura.factura_create, name='factura_create'),
+    #path('Facturas/update/<int:pk>/edit/', viewsfactura.factura_update, name='factura_update'),
+    #path('Facturas/<int:pk>/delete/', viewsfactura.factura_delete, name='factura_delete')
+    path('Reparacion/', viewsreparaciones.repar_list, name='repar_list'),
 ]

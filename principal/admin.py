@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Cliente,RegistroVehiculo,RecepcionVehiculo
+from .models import Cliente,RegistroVehiculo,RecepcionVehiculo,Facturas
 
 # Register your models here.
 # admin.py
@@ -42,3 +42,11 @@ class MecanicoAdmin(admin.ModelAdmin):
 
 # Registra el modelo y su admin
 admin.site.register(Mecanico, MecanicoAdmin)
+
+class FacturaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'reparacion', 'fecha', 'subtotal', 'iva', 'total', 'total_dolares')
+    search_fields = ('reparacion__id', 'fecha')
+    list_filter = ('fecha',)
+    ordering = ('fecha',)
+
+admin.site.register(Facturas, FacturaAdmin)
