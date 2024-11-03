@@ -83,7 +83,7 @@ DATABASES = {
        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Automasterpro',
         'USER': 'root',
-        'PASSWORD': '2024',
+        'PASSWORD': '12345678',
         'HOST': 'localhost',  # o la dirección de tu servidor MySQL
         'PORT': '3306',  # puerto por defecto de MySQL
     }

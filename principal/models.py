@@ -137,3 +137,36 @@ class Reparacion(models.Model):
 
     def __str__(self):
         return self.nombre
+
+class Repuesto(models.Model):
+    nombre = models.CharField(max_length=100, unique=True)
+    descripcion = models.TextField(blank=True, null=True)
+    cantidad_en_inventario = models.PositiveIntegerField()
+    precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
+    proveedor = models.CharField(max_length=100, blank=True, null=True)  # Campo de proveedor sin ForeignKey
+    reparaciones = models.ManyToManyField('Reparacion', related_name="repuestos", blank=True)
+
+    def __str__(self):
+        return self.nombre
+    
+
+from django.db import models
+
+class Cita(models.Model):
+    ESTADO_CHOICES = [
+        ('pendiente', 'Pendiente'),
+        ('completada', 'Completada'),
+        ('en_proceso', 'En Proceso'),
+        ('cancelada', 'Cancelada')
+    ]
+
+    cliente = models.CharField(max_length=100)  # Puede cambiarse a ForeignKey si tienes un modelo Cliente
+    vehiculo = models.CharField(max_length=100)  # Puede cambiarse a ForeignKey si tienes un modelo Vehículo
+    fecha = models.DateField()
+    hora = models.TimeField()
+    estado = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='pendiente')
+    mecanico = models.CharField(max_length=100, blank=True, null=True)  # Puede cambiarse a ForeignKey si tienes un modelo Mecánico
+    descripcion = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"Cita para {self.cliente} - {self.vehiculo} el {self.fecha} a las {self.hora}"

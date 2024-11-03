@@ -4,6 +4,8 @@ from . import viewsauto
 from . import viewsmecanico
 from . import viewsreparaciones
 from . import viewsfactura
+from . import viewsinventario  
+from . import viewscita
 
 
 urlpatterns = [
@@ -40,4 +42,13 @@ urlpatterns = [
     #path('Facturas/update/<int:pk>/edit/', viewsfactura.factura_update, name='factura_update'),
     #path('Facturas/<int:pk>/delete/', viewsfactura.factura_delete, name='factura_delete')
     path('Reparacion/', viewsreparaciones.repar_list, name='repar_list'),
+    path('Inventario/', viewsinventario.repuesto_list, name='repuesto_list'),           # Listar repuestos
+    path('Inventario/nuevo/', viewsinventario.repuesto_create, name='repuesto_create'),  # Crear un nuevo repuesto
+    path('Inventario/<int:pk>/editar/', viewsinventario.repuesto_update, name='repuesto_update'),  # Actualizar un repuesto
+    path('Inventario/<int:pk>/eliminar/', viewsinventario.repuesto_delete, name='repuesto_delete'),  # Eliminar un repuesto
+    path('Citas/', viewscita.cita_list, name='cita_list'),  # Lista de citas
+    path('Citas/nueva/', viewscita.cita_create, name='cita_create'),  # Crear nueva cita
+    path('Citas/<int:pk>/editar/', viewscita.cita_update, name='cita_update'),  # Editar cita existente
+    path('Citas/<int:pk>/eliminar/', viewscita.cita_delete, name='cita_delete'),  # Eliminar cita
+
 ]

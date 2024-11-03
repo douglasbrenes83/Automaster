@@ -1,6 +1,52 @@
 from django import forms
 from .models import Cliente,RegistroVehiculo,RecepcionVehiculo,Mecanico,Reparaciones,Facturas,Reparacion
 from django.shortcuts import render
+from .models import Repuesto
+from .models import Cita
+from django import forms
+from .models import Cita, Mecanico  # Asegúrate de importar tus modelos
+
+class CitaForm(forms.ModelForm):
+    cliente = forms.ModelChoiceField(
+        queryset=Cliente.objects.all(),
+        empty_label="Seleccione un cliente",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    mecanico = forms.ModelChoiceField(
+        queryset=Mecanico.objects.all(),
+        empty_label="Seleccione un mecánico",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+    vehiculo = forms.ModelChoiceField(
+        queryset=RegistroVehiculo.objects.all(),  # Asegúrate de usar RegistroVehiculo
+        empty_label="Seleccione un vehículo",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
+    class Meta:
+        model = Cita
+        fields = ['cliente', 'vehiculo', 'fecha', 'hora', 'estado', 'mecanico', 'descripcion']
+        widgets = {
+            'fecha': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'hora': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
+            'estado': forms.Select(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción de la cita'}),
+        }
+
+
+class RepuestoForm(forms.ModelForm):
+    class Meta:
+        model = Repuesto
+        fields = ['nombre', 'descripcion', 'cantidad_en_inventario', 'precio_unitario', 'proveedor', 'reparaciones']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del repuesto'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción del repuesto'}),
+            'cantidad_en_inventario': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Cantidad en inventario'}),
+            'precio_unitario': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Precio unitario'}),
+            'proveedor': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del proveedor'}),
+            'reparaciones': forms.SelectMultiple(attrs={'class': 'form-control'}),
+        }
+
 #creacion de formulario para cliente
 class ClienteForm(forms.ModelForm):
     class Meta:
@@ -70,6 +116,7 @@ class FacturaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FacturaForm, self).__init__(*args, **kwargs)
         self.fields['reparacion'].widget.attrs.update({'class': 'form-control'})
+   
     class ReparacionForm(forms.ModelForm):
      class Meta:
         model = Reparacion
@@ -79,3 +126,5 @@ class FacturaForm(forms.ModelForm):
             'descripcion': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción de la reparación'}),
             'costo_estimado': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Costo estimado en NIO'}),
         }
+    
+    

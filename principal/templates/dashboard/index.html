@@ -9,57 +9,96 @@
     <style>
         body {
             background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
         }
         .sidebar {
             height: 100vh;
-            position: fixed;
+            width: 250px;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 100;
-            padding: 48px 0 0;
+            padding: 20px 0;
             background-color: #343a40;
+        }
+        .sidebar h2 {
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
         }
         .sidebar a {
             color: white;
+            font-size: 1.1rem;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #495057;
+            color: white;
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+        }
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 2rem;
+        }
+        .table thead {
+            background-color: #343a40;
+            color: white;
+        }
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        .badge {
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- Sidebar -->
     <div class="sidebar">
-        <h2 class="text-white text-center">AutoMaster Pro</h2>
+        <h2>AutoMaster Pro</h2>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" href="#">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'vehiculo_list' %}"">Gestión de Vehículos</a>
+                <a class="nav-link" href="{% url 'vehiculo_list' %}">Gestión de Vehículos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'cliente_list' %}"">Gestión de Clientes</a>
+                <a class="nav-link" href="{% url 'cliente_list' %}">Gestión de Clientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'mecanico_list' %}"">Gestión de Mecanicos</a>
+                <a class="nav-link" href="{% url 'mecanico_list' %}">Gestión de Mecánicos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Citas</a>
+                <a class="nav-link" href="{% url 'cita_list' %}">Citas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Inventario</a>
+                <a class="nav-link" href="{% url 'repuesto_list' %}">Inventario</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'repar_list' %}">Reportes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin">Configuraciones</a>
+                <a class="nav-link" href="{% url 'factura_list'%}">Configuraciones</a>
             </li>
         </ul>
     </div>
 
-    <div class="container" style="margin-left: 250px; padding-top: 20px;">
-        <h1>Bienvenido al Dashboard</h1>
-        <div class="row">
+    <!-- Main content -->
+    <div class="main-content">
+        <h1 class="mb-4">Bienvenido </h1>
+
+        <!-- Tarjetas informativas -->
+        <div class="row mb-4">
             <div class="col-md-4">
                 <div class="card text-white bg-success mb-3">
                     <div class="card-header">Vehículos en Taller</div>
@@ -88,7 +127,30 @@
                 </div>
             </div>
         </div>
-        
+
+        <!-- Tarjetas adicionales -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-header">Repuestos en Baja</div>
+                    <div class="card-body">
+                        <h5 class="card-title">3</h5>
+                        <p class="card-text">Repuestos con niveles críticos de inventario.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-white bg-secondary mb-3">
+                    <div class="card-header">Mecánicos Disponibles</div>
+                    <div class="card-body">
+                        <h5 class="card-title">4</h5>
+                        <p class="card-text">Número de mecánicos disponibles en este momento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de últimas citas -->
         <h2>Últimas Citas</h2>
         <table class="table table-striped">
             <thead>
@@ -101,29 +163,18 @@
                 </tr>
             </thead>
             <tbody>
+                {% for cita in ultimas_citas %}
                 <tr>
-                    <td>1</td>
-                    <td>Juan Pérez</td>
-                    <td>Toyota Corolla</td>
-                    <td>2024-11-05</td>
-                    <td>Pendiente</td>
+                    <td>{{ cita.id }}</td>
+                    <td>{{ cita.cliente.nombre }}</td>
+                    <td>{{ cita.vehiculo.modelo }}</td>
+                    <td>{{ cita.fecha }}</td>
+                    <td><span class="badge {% if cita.estado == 'Pendiente' %}bg-warning text-dark{% elif cita.estado == 'Completada' %}bg-success{% else %}bg-primary{% endif %}">{{ cita.estado }}</span></td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Ana Gómez</td>
-                    <td>Ford Fiesta</td>
-                    <td>2024-11-06</td>
-                    <td>Completada</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Carlos López</td>
-                    <td>Honda Civic</td>
-                    <td>2024-11-07</td>
-                    <td>En Proceso</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
+        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
