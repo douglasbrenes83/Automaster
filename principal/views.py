@@ -33,7 +33,7 @@ def logout_view(request):
     messages.success(request, "Has cerrado sesión exitosamente.")
     return redirect('login')
 
-@login_required
+
 def dashboard(request):
     return render(request, 'dashboard/index.html')
 
@@ -55,29 +55,36 @@ def cliente_create(request):
 # Listar clientes
 def cliente_list(request):
     clientes = Cliente.objects.all()
-    return render(request, 'clientes/cliente_list.html', {'clientes': clientes})
+    return render(request, 'Clientes/cliente_list.html', {'clientes': clientes})
+
 
 # Detalle del cliente
 def cliente_detail(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
     return render(request, 'clientes/cliente_detail.html', {'cliente': cliente})
 
+
 # Actualizar cliente
 def cliente_update(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
+    
     if request.method == 'POST':
         form = ClienteForm(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
-            return redirect('cliente_list')
+            return redirect('cliente_list')  # Cambia a la URL que desees
     else:
         form = ClienteForm(instance=cliente)
-    return render(request, 'clientes/cliente_update.html', {'form': form})
+
+    return render(request, 'Clientes/cliente_update.html', {'form': form, 'cliente': cliente})
+
+
 
 # Eliminar cliente
 def cliente_delete(request, pk):
     cliente = get_object_or_404(Cliente, pk=pk)
-    if request.method == 'POST':
+    if request.method == "POST":
         cliente.delete()
         return redirect('cliente_list')
-    return render(request, 'clientes/cliente_confirm_delete.html', {'cliente': cliente})
+    return render(request, 'Clientes/cliente_delete.html', {'cliente': cliente})
+

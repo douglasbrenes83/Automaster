@@ -38,10 +38,7 @@
                     <td>
                         <a href="{% url 'actualizar_vehiculo' vehiculo.id %}" class="btn btn-sm btn-primary">Actualizar</a>
                         <a href="{% url 'vehiculo_create' %}" class="btn btn-sm btn-success">Agregar nuevo</a>
-                        <form action="{% url 'eliminar_vehiculo' vehiculo.id %}" method="post" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
-                        </form>
+                        <a href="{% url 'eliminar_vehiculo' vehiculo.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}

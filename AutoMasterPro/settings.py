@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-qmr+0+h$s1xtp66qu7ia6oktfyq1__jujm$=%cs+iih)@3#$fb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG =True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.8', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -77,8 +78,14 @@ WSGI_APPLICATION = 'AutoMasterPro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+
+       'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Automasterpro',
+        'USER': 'root',
+        'PASSWORD': '2024',
+        'HOST': 'localhost',  # o la dirección de tu servidor MySQL
+        'PORT': '3306',  # puerto por defecto de MySQL
     }
 }
 

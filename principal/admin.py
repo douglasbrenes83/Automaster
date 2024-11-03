@@ -33,3 +33,12 @@ class RecepcionVehiculoAdmin(admin.ModelAdmin):
         }),
     )
     ordering = ('-fecha_recepcion',)  # Orden por fecha de recepción (descendente)
+    from django.contrib import admin
+from .models import Mecanico
+
+class MecanicoAdmin(admin.ModelAdmin):
+    list_display = ('dni', 'nombre', 'apellidos', 'especialidad', 'telefono', 'email')
+    search_fields = ('nombre', 'apellidos', 'dni', 'especialidad')
+
+# Registra el modelo y su admin
+admin.site.register(Mecanico, MecanicoAdmin)

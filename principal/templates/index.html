@@ -43,25 +43,25 @@
                 <div class="carousel-item active">
                     <img src="{% static 'imagenes/centra.jpg' %}" class="d-block w-100" alt="Primera imagen">
                     <div class="carousel-caption-custom">
-                        <h1>Título 1</h1>
-                        <h2>Subtítulo 1</h2>
-                        <p>Este es el primer párrafo.</p>
+                        <h1>Bienvenidos</h1>
+                        <h2>AutoMaster Pro</h2>
+                        <p>Donde la calidad y el servicio se encuentran.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{% static 'imagenes/mercedes.jpeg' %}" class="d-block w-100" alt="Segunda imagen">
                     <div class="carousel-caption-custom">
-                        <h1>Título 2</h1>
-                        <h2>Subtítulo 2</h2>
-                        <p>Este es el segundo párrafo.</p>
+                        <h1>Servicio</h1>
+                        <h2>De Mantenimiento</h2>
+                        <p>Cuida tu vehículo con nuestro servicio integral.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="{% static 'imagenes/vmw.jpg' %}" class="d-block w-100" alt="Tercera imagen">
                     <div class="carousel-caption-custom">
-                        <h1>Título 3</h1>
-                        <h2>Subtítulo 3</h2>
-                        <p>Este es el tercer párrafo.</p>
+                        <h1>Ofertas</h1>
+                        <h2>Especiales</h2>
+                        <p>Descuentos exclusivos en servicios seleccionados.</p>
                     </div>
                 </div>
             </div>
@@ -75,14 +75,88 @@
             </button>
         </div>
     </header>
-
-    <!-- Sección Principal -->
-    <div class="main text-white">
-        <section class="container py-5">
-            <h2>Bienvenidos a nuestra página</h2>
-            <p>Aquí puedes encontrar información sobre nuestros productos y servicios.</p>
-        </section>
+    <!-- Sección de Servicios Destacados -->
+<div class="services-section text-dark py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-4">Nuestros Servicios Destacados</h2>
+        <div class="row">
+            <div class="col-md-4 text-center mb-4">
+                <img src="{% static 'imagenes/cambio_aceite.jpg' %}" class="img-fluid mb-2" alt="Cambio de Aceite">
+                <h5>Cambio de Aceite</h5>
+                <p>Servicio rápido y eficiente para mantener tu motor en perfecto estado.</p>
+                <a href="#" class="btn btn-primary">Más Información</a>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <img src="{% static 'imagenes/mantenimiento_general.jpg' %}" class="img-fluid mb-2" alt="Mantenimiento Regular">
+                <h5>Mantenimiento Regular</h5>
+                <p>Programas de mantenimiento para garantizar el rendimiento de tu vehículo.</p>
+                <a href="#" class="btn btn-primary">Más Información</a>
+            </div>
+            <div class="col-md-4 text-center mb-4">
+                <img src="{% static 'imagenes/reparacion_transmision.jpg' %}" class="img-fluid mb-2" alt="Reparaciones Complejas">
+                <h5>Reparaciones Complejas</h5>
+                <p>Soluciones efectivas para problemas mecánicos de cualquier tipo.</p>
+                <a href="#" class="btn btn-primary">Más Información</a>
+            </div>
+        </div>
     </div>
+</div>
+
+
+   <!-- Sección Principal -->
+<div class="main text-white bg-dark py-5">
+    <section class="container">
+        <h2 class="text-center mb-4">AutoMaster Pro</h2>
+        <p class="lead text-justify">
+            En AutoMaster Pro, nos complace recibirte. Somos un taller mecánico comprometido con la excelencia y la satisfacción de nuestros clientes. Aquí encontrarás una amplia gama de servicios diseñados para mantener tu vehículo en óptimas condiciones.
+        </p>
+        <p class="text-justify">
+            Nuestro equipo de expertos está listo para ofrecerte un servicio personalizado y de calidad, utilizando las últimas tecnologías y herramientas del sector. Ya sea que necesites un simple cambio de aceite, mantenimiento regular o reparaciones complejas, estamos aquí para ayudarte.
+        </p>
+        <p class="text-justify">
+            Explora nuestro sitio para conocer más sobre nuestros servicios, ofertas especiales y consejos útiles para el cuidado de tu automóvil. Gracias por elegirnos; tu confianza es nuestra prioridad. ¡Esperamos verte pronto!
+        </p>
+    </section>
+</div>
+
+    <!-- Sección de Servicios -->
+<section id="servicios" class="container py-5">
+    <h2 class="text-center mb-4">Nuestros Servicios</h2>
+    <p class="text-center mb-5">En nuestro taller ofrecemos una variedad de servicios para satisfacer todas tus necesidades automotrices.</p>
+    <div class="row">
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/cambio_aceite.jpg' %}" alt="Cambio de Aceite" class="img-fluid mb-3">
+            <h5>Cambio de Aceite</h5>
+            <p>Realizamos cambios de aceite con productos de alta calidad para prolongar la vida de tu motor.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/balanceo_alineacion.jpg' %}" alt="Balanceo y Alineación" class="img-fluid mb-3">
+            <h5>Balanceo y Alineación</h5>
+            <p>Ofrecemos servicios de balanceo y alineación para garantizar un manejo suave y seguro.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/mantenimiento_general.jpg' %}" alt="Mantenimiento General" class="img-fluid mb-3">
+            <h5>Mantenimiento General</h5>
+            <p>Realizamos un mantenimiento general que incluye revisión de frenos, suspensión y más.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/cambio_bateria.jpg' %}" alt="Cambio de Batería" class="img-fluid mb-3">
+            <h5>Cambio de Batería</h5>
+            <p>Cambiamos y revisamos baterías para asegurar que tu vehículo siempre arranque sin problemas.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/revision_frenos.jpg' %}" alt="Revisión de Frenos" class="img-fluid mb-3">
+            <h5>Revisión de Frenos</h5>
+            <p>Nuestros expertos inspeccionan y reemplazan componentes de frenos para tu seguridad.</p>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+            <img src="{% static 'imagenes/reparacion_transmision.jpg' %}" alt="Reparación de Transmisión" class="img-fluid mb-3">
+            <h5>Reparación de Transmisión</h5>
+            <p>Realizamos diagnósticos y reparaciones de transmisión para un funcionamiento óptimo.</p>
+        </div>
+    </div>
+</section>
+
 
     <!-- Pie de página -->
     <footer class="footer bg-dark text-white">
@@ -119,7 +193,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col-12 text-center">
-                    <p class="mb-0">© 2024 Tu Empresa. Todos los derechos reservados.</p>
+                    <p class="mb-0">© 2024 AutoMaster Pro. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>

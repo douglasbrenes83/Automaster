@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .models import RegistroVehiculo,RecepcionVehiculo, Reparaciones
+from .models import RegistroVehiculo,RecepcionVehiculo
 from django.contrib.auth.decorators import login_required
 from .forms import RegistroVehiculoForm
 from .forms import RecepcionVehiculoForm
@@ -40,8 +40,9 @@ def eliminar_vehiculo(request, vehiculo_id):
     vehiculo = get_object_or_404(RegistroVehiculo, id=vehiculo_id)
     if request.method == 'POST':
         vehiculo.delete()
-        return redirect('listar_vehiculos')  # Redirige a una vista de lista después de eliminar
-    return render(request, 'Autos/vehiculo_list.html', {'vehiculo': vehiculo})
+        return redirect('vehiculo_list')  # Cambia 'vehiculo_list' por el nombre correcto de tu vista
+    return render(request, 'Autos/eliminar_vehiculo.html', {'vehiculo': vehiculo})
+
 
 # Crear una nueva recepción de vehículo
 def nueva_recepcion(request):

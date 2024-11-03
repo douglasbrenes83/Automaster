@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,24 +28,25 @@
                     <th>Apellido</th>
                     <th>Direccioon</th>
                     <th>telefono</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                {% for cliente in cliente_list%}
+                {% for Clientes in clientes%}
                 <tr>
-                    <td>{{ cliente.DNI.modelo }}</td>
-                    <td>{{ cliente.nombre }}</td>
-                    <td>{{ cliente.apellido }}</td>
-                    <td>{{ cliente.direccion}}</td>
-                    <td>{{ cliente.telefono}}</td>
+                    <td>{{ Clientes.dni }}</td>
+                    <td>{{ Clientes.nombre }}</td>
+                    <td>{{ Clientes.apellidos }}</td>
+                    <td>{{ Clientes.direccion}}</td>
+                    <td>{{ Clientes.telefono}}</td>
                     <td>
-                        <a href="{% url 'cliente_update' cliente.id %}" class="btn btn-warning btn-sm">Actualizar</a>
-                        <a href="{% url 'cliente_delete' cliente.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="{% url 'cliente_update' Clientes.id %}" class="btn btn-warning btn-sm">Actualizar</a>
+                        <a href="{% url 'cliente_delete' Clientes.id %}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="6" class="text-center">No hay recepciones registradas.</td>
+                    <td colspan="6" class="text-center">No hay clientes registrados.</td>
                 </tr>
                 {% endfor %}
             </tbody>
